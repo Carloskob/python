@@ -100,6 +100,13 @@ class PokerTest(unittest.TestCase):
             best_hands(["4S AH AS 7C AD", "4S AH AS 8C AD"]), ["4S AH AS 8C AD"]
         )
 
+    def test_with_multiple_decks_two_players_can_have_same_three_of_a_kind_and_same_higher_remaining_card(
+        self,
+    ):
+        self.assertEqual(
+            best_hands(["3S AH AS 8C AD", "4S AH AS 8C AD"]), ["4S AH AS 8C AD"]
+        ) 
+
     def test_a_straight_beats_three_of_a_kind(self):
         self.assertEqual(
             best_hands(["4S 5H 4C 8D 4H", "3S 4D 2S 6D 5C"]), ["3S 4D 2S 6D 5C"]
